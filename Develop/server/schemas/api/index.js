@@ -4,9 +4,3 @@
 // router.use('/users', userRoutes);
 
 // module.exports = router;
-
-const typeDefs = require('./typeDefs');
-const resolvers = require('./resolvers');
-
-module.exports = { typeDefs, resolvers };
-

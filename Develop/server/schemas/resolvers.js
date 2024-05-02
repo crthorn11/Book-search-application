@@ -80,6 +80,7 @@ const resolvers = {
         }
         throw AuthenticationError;
       },
-    }};
+    },
+};
 
   module.exports = resolvers;
