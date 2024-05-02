@@ -47,7 +47,39 @@ const resolvers = {
 
       return { token, user };
     },
-}};
-
+    addBook: async (parent, { Book }, context) => {
+        if (context.user) {
+          const book = await Book.create({
+            book,
+            Book: context.user.username,
+          });
+  
+          await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { books: book._id } }
+          );
+  
+          return book;
+        }
+        throw AuthenticationError;
+        ('You need to be logged in!');
+      },
+      removeBook: async (parent, { bookId }, context) => {
+        if (context.user) {
+          const book = await Book.findOneAndDelete({
+            _id: bookId,
+            Book: context.user.username,
+          });
+  
+          await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { books: book._id } }
+          );
+  
+          return book;
+        }
+        throw AuthenticationError;
+      },
+    }};
 
   module.exports = resolvers;
