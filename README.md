@@ -9,4 +9,8 @@ https://graphql.org/learn/
 GraphQL and Apollo
 https://www.apollographql.com/docs/apollo-server/
 
-# Link
+
+# Link to Book search app repository
+https://github.com/crthorn11/Book-search-application
+
+![Picture of app being used with graphql and mongoose](../Book.jpg)
